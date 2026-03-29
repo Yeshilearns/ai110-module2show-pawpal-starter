@@ -2,6 +2,7 @@
 
 You are building **PawPal+**, a Streamlit app that helps a pet owner plan care tasks for their pet.
 
+
 ## Scenario
 
 A busy pet owner needs help staying consistent with pet care. They want an assistant that can:
@@ -22,6 +23,7 @@ Your final app should:
 - Display the plan clearly (and ideally explain the reasoning)
 - Include tests for the most important scheduling behaviors
 
+
 ## Getting started
 
 ### Setup
@@ -41,3 +43,8 @@ pip install -r requirements.txt
 5. Add tests to verify key behaviors.
 6. Connect your logic to the Streamlit UI in `app.py`.
 7. Refine UML so it matches what you actually built.
+
+## Smarter Scheduling
+
+The PawPal+ system was improved with a few algorithmic features to make scheduling more useful and realistic. Tasks can now be sorted by time in "HH:MM" format, which makes it easier to view them in chronological order. The system can also filter tasks by completion status or by pet name, which helps organize tasks when there are multiple pets or many activities. In addition, recurring tasks are supported, so when a daily or weekly task is marked complete, a new instance is automatically created for the next occurrence. Finally, the scheduler includes basic conflict detection, which checks for tasks scheduled at the same time and returns a warning instead of crashing. These additions make the app smarter, more flexible, and closer to a real pet-care scheduling tool.
+
