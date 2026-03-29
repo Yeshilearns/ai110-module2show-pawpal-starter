@@ -171,3 +171,21 @@ class Scheduler:
             f"Scheduled {count} tasks totaling {total} minutes. "
             "Higher-priority tasks were chosen first while staying within the available time."
         )
+    def detect_conflicts(self, tasks: List[Task]) -> List[str]:
+        """Detect tasks that are scheduled at the same time."""
+        warnings = []
+        seen_times = {}
+
+        for task in tasks:
+            if task.time is None:
+                continue
+
+            if task.time in seen_times:
+                other_task = seen_times[task.time]
+                warnings.append(
+                    f"Conflict detected: '{task.title}' and '{other_task.title}' are both scheduled at {task.time}."
+                )
+            else:
+                seen_times[task.time] = task
+
+        return warnings

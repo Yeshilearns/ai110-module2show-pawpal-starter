@@ -45,6 +45,14 @@ task4 = Task(
     due_date=date.today()
 )
 
+task5 = Task(
+    title="Grooming",
+    duration=25,
+    priority=3,
+    time="09:00",
+    due_date=date.today()
+)
+
 # Mark one task as completed for filtering test
 task4.mark_complete()
 
@@ -54,6 +62,7 @@ pet1.add_task(task3)
 
 pet2.add_task(task2)
 pet2.add_task(task4)
+pet2.add_task(task5)
 
 # Create scheduler
 scheduler = Scheduler()
@@ -64,8 +73,7 @@ all_tasks = owner.get_all_tasks()
 print("Original Task Order:")
 for task in all_tasks:
     print(
-        f"- {task.title} | pet={task.pet_name} | time={task.time} | "
-        f"completed={task.completed}"
+        f"- {task.title} | pet={task.pet_name} | time={task.time} | completed={task.completed}"
     )
 
 # Sort by time
@@ -88,6 +96,16 @@ buddy_tasks = scheduler.filter_tasks(all_tasks, pet_name="Buddy")
 print("\nTasks for Buddy:")
 for task in buddy_tasks:
     print(f"- {task.title} | pet={task.pet_name}")
+
+# Detect conflicts
+conflicts = scheduler.detect_conflicts(all_tasks)
+
+print("\nConflict Check:")
+if conflicts:
+    for warning in conflicts:
+        print(f"- {warning}")
+else:
+    print("No conflicts detected.")
 
 # Generate schedule
 schedule = scheduler.generate_schedule(owner)
