@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from typing import List, Optional
+from datetime import date, timedelta
 
 
 @dataclass
@@ -11,10 +12,31 @@ class Task:
     completed: bool = False
     time: Optional[str] = None
     pet_name: Optional[str] = None
+    frequency: Optional[str] = None   # "daily" or "weekly"
+    due_date: Optional[date] = None
 
-    def mark_complete(self) -> None:
-        """Mark this task as completed."""
+    def mark_complete(self) -> Optional["Task"]:
+        """Mark this task as completed and create the next recurring task if needed."""
         self.completed = True
+
+        if self.frequency == "daily":
+            next_date = (self.due_date or date.today()) + timedelta(days=1)
+        elif self.frequency == "weekly":
+            next_date = (self.due_date or date.today()) + timedelta(days=7)
+        else:
+            return None
+
+        return Task(
+            title=self.title,
+            duration=self.duration,
+            priority=self.priority,
+            category=self.category,
+            completed=False,
+            time=self.time,
+            pet_name=self.pet_name,
+            frequency=self.frequency,
+            due_date=next_date,
+        )
 
     def update_task(
         self,
