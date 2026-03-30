@@ -41,11 +41,15 @@ One tradeoff my scheduler makes is in conflict detection. It only checks if two 
 - How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
 - What kinds of prompts or questions were most helpful?
 
+Throughout this project, I used AI tools like Visual Studio Copilot mainly and ChatGPT to guide my thinking when I got stuck or needed help structuring parts of the system. I used it for things like breaking down how to implement classes, understanding how to connect different components, and refining logic for features like sorting, filtering, and scheduling. The most helpful prompts were the ones where I asked for step-by-step explanations or ways to improve a specific part of my code, rather than just asking for full solutions.
+
+
 **b. Judgment and verification**
 
 - Describe one moment where you did not accept an AI suggestion as-is.
 - How did you evaluate or verify what the AI suggested?
 
+There were moments where I didn't accept AI suggestions as-is. For example, some suggestions combined too much logic into a single method, which made the code harder to follow and less modular. I chose to separate responsibilites across classes like Owner, Pet, and Scheduler to keep the design clean. I evaluated A suggestions by testing them in my code, checking if they matched my design, and making sure I understood how they worked before keeping them.
 ---
 
 ## 4. Testing and Verification
@@ -55,10 +59,14 @@ One tradeoff my scheduler makes is in conflict detection. It only checks if two 
 - What behaviors did you test?
 - Why were these tests important?
 
+I tested several core behaviors of the system, including marking tasks as complete, adding tasks to pets, sorting tasks by time, handling recurrings tasks, and detecting scheduling conflicts. These tests were important because they verified both the basic functionality and the more advanced features I added later, like recurring tasks and conflict detection. I also made sure to include edge cases, such as tasks with the same time, to ensure the system handled them correctly.
+
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
 - What edge cases would you test next if you had more time?
+ 
+ I would rate my confidence in the scheduler around 4 out of 5. While all my automated tests passed and the system worked correctly in my manual testing, I did run into some challenges earlier when refining the logic and writing test cases. I had to go back and rethink parts of my implementation to make sure everything behaved as expected. If I had more time, I would test additional edge cases like overlapping durations (not just exact time matches), larger numbers of tasks, and more complex recurring patterns. 
 
 ---
 
@@ -68,10 +76,16 @@ One tradeoff my scheduler makes is in conflict detection. It only checks if two 
 
 - What part of this project are you most satisfied with?
 
+One part of the project I am most satisfied with is how the overall system came together, especially the Scheduler and how it integrates sorting, filtering and conflict detection. I also feel good about how the code is structured, since each class has a clear responsibility and the system is easy to follow.
+
 **b. What you would improve**
 
 - If you had another iteration, what would you improve or redesign?
 
+If I had another iteration, I would improve the conflict detection logic to handle overlapping time ranges instead of only exact matches. I would also enhance the UI to make it more interactive and user-friendly, and possibly add features like editing or deleting tasks directly from the interface.
+
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+
+One important thing I learned from this project is how to balance using AI with my own understanding. AI was helpful for guidance and suggestions, but I still needed to think critically abou the design and make decision myself. This helped me become more confident in structuring systems, debugging issues, and making sure different parts of the code work together properly.
