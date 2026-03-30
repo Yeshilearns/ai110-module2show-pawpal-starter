@@ -65,6 +65,10 @@ PawPal+ is a pet care scheduling app that helps organize daily tasks for pet own
 <a href="PawPal_Demo1.png" target="_blank">
   <img src="PawPal_Demo1.png" title="PawPal App" width="600" alt="PawPal App" />
 </a>
+
+<a href="PawPal_Demo2.png" target="_blank">
+  <img src="PawPal_Demo2.png" title="PawPal App" width="600" alt="PawPal App" />
+</a>
 ## How It Works
 
 The system follows an object-oriented design:
